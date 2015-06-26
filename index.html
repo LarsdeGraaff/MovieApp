@@ -6,11 +6,11 @@
     <link rel="stylesheet" type="text/css" href="lib/css/bootstrap.css">
 
 </head>
-<body>
+<body  ng-controller="searchCtrl">
     <div class="container">
 
         <h1 class="page-header">Movie App</h1>
-
+        <h2>{{ message}}</h2>
         <section>
             <form class="form-horizontal">
                 <div class="form-group">
@@ -32,7 +32,9 @@
 
     <script type="text/javascript" src="lib/angularjs.js"></script>
     <script type="text/javascript" src="app/controllers/controllers.js"></script>
+    <script type="text/javascript" src="app/controllers/searchCtrl.js"></script>
     <script type="text/javascript" src="app/app.js"></script>
+
 
 
 </body>
