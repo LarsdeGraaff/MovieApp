@@ -11,6 +11,10 @@
         input.ng-dirty.ng-valid{
             background-color: darkseagreen;
         }
+        .movie.selected{
+            background-color: purple;
+            color: white;
+        }
     </style>
 </head>
 <body  ng-controller="searchCtrl">
@@ -32,6 +36,16 @@
                     </div>
                 </div>
             </form>
+        </section>
+
+        <section ng-show="results">
+            <h2 >searchResults</h2>
+            <div class="row">
+                <div class="col-md-4 movie" ng-click="selectMovie(movie.id)" ng-repeat="movie in results" ng-class="{selected : selectedId==movie.id}">
+                    <img src="{{movie.posterPath}}"/>
+                    <p>{{movie.title}}</p>
+                </div>
+            </div>
         </section>
 
     </div>

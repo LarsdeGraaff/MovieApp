@@ -5,13 +5,18 @@
 
 function searchCtrl($scope,$http,apiUrl,$log){
     $scope.message="Search form"
+
     $scope.searchMovie=function(title){
         $log.debug(title);
 
         var url=apiUrl + 'movies/search?title=' + title;
         $http.get(url).success(function(data) {
-            $log.debug(data);
+            $scope.results=data;
         });
+
+        $scope.selectMovie=function(id){
+            $scope.selectedId=id;
+        }
 
         $log.debug('run');
 
