@@ -3,7 +3,7 @@
  */
 
 
-function searchCtrl($scope,$http,apiUrl,$log){
+function searchCtrl($scope,$http,apiUrl,$log,$location){
     $scope.message="Search form"
 
     $scope.searchMovie=function(title){
@@ -18,9 +18,18 @@ function searchCtrl($scope,$http,apiUrl,$log){
             $scope.selectedId=id;
         }
 
+
         $log.debug('run');
 
+        $scope.addMovie=function(id){
+            var url=apiUrl +'Movies/' + id;
+            $http.post(url).success(function(){
+                $location.url('/collection');
+            });
+        }
+
     }
+
 }
 
 angular.module('movieApp.controllers')

@@ -13,6 +13,11 @@ angular.module('movieApp.controllers', ['ngRoute'])
             controller: 'searchCtrl'
         });
 
+        $routeProvider.when('/collection', {
+            templateUrl:'app/views/collection.html',
+            controller: 'collectionCtrl'
+        })
+
         $routeProvider.otherwise({
             redirectTo:'/home'
         });
