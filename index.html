@@ -14,6 +14,8 @@
         .movie.selected{
             background-color: purple;
             color: white;
+            border-radius: 15px;
+            padding-top: 10px;
         }
     </style>
 </head>
@@ -21,6 +23,16 @@
     <div class="container">
 
         <h1 class="page-header">Movie App</h1>
+
+        <nav>
+
+            <ul class="nav nav-tabs">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">My Collection</a></li>
+                <li><a href="#">Search</a></li>
+            </ul>
+
+        </nav>
         <h2>{{ message}}</h2>
         <section>
             <form class="form-horizontal" name="searchForm" novalidate ng-submit="searchMovie(title)">
@@ -44,7 +56,12 @@
                 <div class="col-md-4 movie" ng-click="selectMovie(movie.id)" ng-repeat="movie in results" ng-class="{selected : selectedId==movie.id}">
                     <img src="{{movie.posterPath}}"/>
                     <p>{{movie.title}}</p>
+
                 </div>
+            </div>
+            <div class="row" ng-show="selectedId">
+                <button class="btn btn-block btn-primary">add to collection</button>
+
             </div>
         </section>
 
